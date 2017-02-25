@@ -34,10 +34,9 @@ public class Lab6 extends Application {
      private Label lblCardDeck = new Label();
      private Label lblCardRight = new Label();
      
-    // String rightBuild;
-   //  String leftBuild;
-     //String resetImg;
-     
+    Deck myDeck = new Deck();// new deck of cards
+    
+    
     private int rightVal=0;
      private int leftVal=0;
      private int Score=0;
@@ -74,19 +73,18 @@ public class Lab6 extends Application {
         lblCardDeck.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Random rand = new Random();
                 
-                    int pathVal = rand.nextInt((152-101)+1)+101;
-                    String Builder = ("file:img\\"+pathVal+".gif");
+                myDeck.shuffle();  // Shuffle the Deck to ensure cards are random.
+                
+          
                 if(rightsTurn == true)
                 {
-                    Card rCard = new Card(Builder);
+                    
+                   Card rCard = myDeck.deal();
                     rightVal = rCard.getValue();
 
                     lblCardRight.setGraphic(rCard.getCard());
-                  //  Image rCard = new Image(rightBuild);
-                  //  lblCardRight.setGraphic(new ImageView(rCard));
-                   
+            
                    
                   
                    
@@ -96,11 +94,10 @@ public class Lab6 extends Application {
                 {
                     
                 
-                Card lCard = new Card(Builder);
+                Card lCard = myDeck.deal();    
                 leftVal = lCard.getValue();
                 lblCardLeft.setGraphic(lCard.getCard());
-                //Image lCard = new Image(leftBuild);
-                //lblCardLeft.setGraphic(new ImageView(lCard));
+                
                 }
                 
                 if(rightVal > leftVal)

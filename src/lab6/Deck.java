@@ -18,7 +18,7 @@ public class Deck {
     private int index=0;
     final int LAST_CARD =45;
     
-   ArrayList<Card> deck = new ArrayList<Card>();
+  private ArrayList<Card> deck = new ArrayList<Card>();
     
    public Deck(){
         
@@ -31,7 +31,7 @@ public class Deck {
     }
     public void shuffle(){
         
-        Collections.shuffle(deck);
+        Collections.shuffle(this.deck);
         
     }
     
@@ -53,7 +53,7 @@ public class Deck {
     
     public Card deal(){
    
-        if(index>=LAST_CARD){
+        if(this.index>=LAST_CARD){
             
             this.shuffle();
             this.index=0;
@@ -61,7 +61,7 @@ public class Deck {
         
         
         
-        return deck.get(index); 
+        return deck.get(this.index++); 
     }
     
     
