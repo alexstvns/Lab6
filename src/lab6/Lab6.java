@@ -37,6 +37,7 @@ public class Lab6 extends Application {
     Deck myDeck = new Deck();// new deck of cards
     
     
+    
     private int rightVal=0;
      private int leftVal=0;
      private int Score=0;
@@ -74,7 +75,6 @@ public class Lab6 extends Application {
             @Override
             public void handle(MouseEvent event) {
                 
-                myDeck.shuffle();  // Shuffle the Deck to ensure cards are random.
                 
           
                 if(rightsTurn == true)
@@ -85,7 +85,6 @@ public class Lab6 extends Application {
 
                     lblCardRight.setGraphic(rCard.getCard());
             
-                   
                   
                    
                 }
@@ -191,6 +190,7 @@ public class Lab6 extends Application {
         lblCardRight.setGraphic(cR.getCard());
         lblCardDeck.setGraphic(cD.getCard());
         
+        myDeck.shuffle(); // Shuffle the deck at the beginning of a new game.
     }
 
     /**
